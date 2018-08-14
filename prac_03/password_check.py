@@ -6,12 +6,13 @@ MIN_LENGTH = 4
 
 
 def main():
+    """Get password and print asterisks"""
     password = get_password(MIN_LENGTH)
     return_asterisks(password)
 
 
 def get_password(min_length):
-    """Check if password meets length requirement."""
+    """Get and check if password meets length requirement."""
     password = input("Choose password: ")
     while len(password) < min_length:
         password = input("Password must be longer than {} characters: ".format(min_length))
