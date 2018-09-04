@@ -7,4 +7,4 @@ for word in words:
 words = sorted(word_occurrences.keys())
 longest_word = max(len(word) for word in words)
 for word in words:
-    print("{:{x}} : {}".format(word, word_occurrences[word], x=longest_word))
+    print("{:{}} : {}".format(word, longest_word, word_occurrences[word]))
