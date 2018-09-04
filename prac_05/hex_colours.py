@@ -4,5 +4,5 @@ COLOUR_TO_HEX = {"AliceBlue": "#f0f8ff", "AntiqueWhite": "#faebd7", "aquamarine1
 
 colour_choice = input("What Colour? ")
 while colour_choice != "":
-    print("The code for {} is {}".format(colour_choice, COLOUR_TO_HEX.get(colour_choice)))
+    print("The code for {} is {}".format(colour_choice, COLOUR_TO_HEX[colour_choice]))
     colour_choice = input("What Colour? ")
