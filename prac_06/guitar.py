@@ -12,7 +12,7 @@ class Guitar:
 
     def __str__(self):
         """Return string containing guitar details."""
-        return "{} ({}) : {}".format(self.name, self.year, self.cost)
+        return "{} ({}) : ${:.2f}".format(self.name, self.year, self.cost)
 
     def get_age(self):
         """Returns the age of the guitar"""
