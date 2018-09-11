@@ -1,21 +1,56 @@
 from prac_06.car import Car
 
-print("Let's Drive!")
-car_name = input("Enter your car name: ")
-user_car = Car(car_name, 100)
+MENU = """Menu:
+d) Drive
+r) Refuel
+q) Quit"""
+MENU_OPTIONS = ['d', 'r', 'q']
 
-print(user_car)
+
+def main():
+    print("Let's Drive!")
+    car_name = input("Enter your car name: ")
+    user_car = Car(car_name, 100)
+
+    print(user_car)
+    print(MENU)
+    menu_selection = determine_valid_user_choice(input("Enter your choice: ").lower())
+    while menu_selection != 'q':
+        if menu_selection == 'd':
+            # Drive functionality
+            distance_to_drive = int(input("How many km do you wish to drive? "))
+            while distance_to_drive < 0:
+                print("Distance must be >=0")
+                distance_to_drive = int(input("How many km do you wish to drive? "))
+            user_car.drive(distance_to_drive)
+            if user_car.fuel == 0:
+                empty_tank_string = " and ran out of fuel"
+            else:
+                empty_tank_string = ""
+            print("The car drove {}km{}.\n".format(distance_to_drive, empty_tank_string))
+            print(user_car)
+            print(MENU)
+            menu_selection = determine_valid_user_choice(input("Enter your choice: ").lower())
+        else:
+            # Refuel functionality
+            amount_to_refuel = int(input("How many units of fuel do you want to add to the car?"))
+            while amount_to_refuel < 0:
+                print("Fuel amount must be >= 0")
+                amount_to_refuel = int(input("How many units of fuel do you want to add to the car?"))
+            user_car.fuel = user_car.fuel + amount_to_refuel
+            print("Added {} units of fuel.\n".format(amount_to_refuel))
+            print(user_car)
+            print(MENU)
+            menu_selection = determine_valid_user_choice(input("Enter your choice: ").lower())
+    print("\nGoodbye {}'s driver".format(user_car.name))
 
 
-distance_to_drive = int(input("How many km do you wish to drive? "))
-while distance_to_drive < 0:
-    print("Distance must be >=0")
-    distance_to_drive = int(input("How many km do you wish to drive? "))
-user_car.drive(distance_to_drive)
-if user_car.odometer == 0:
-    empty_tank_string = " and ran out of fuel"
-else:
-    empty_tank_string = ""
+def determine_valid_user_choice(choice):
+    while choice not in MENU_OPTIONS:
+        print("Invalid Choice")
+        print(MENU)
+        choice = input("Enter your choice: ").lower()
+    return choice
 
-print("The car drove {}km{}.".format(distance_to_drive, empty_tank_string))
 
+main()
