@@ -13,12 +13,13 @@ class ConvertMilesToKilometresApp(App):
         self.root = Builder.load_file('converting.kv')
         return self.root
 
-    def handle_convert(self, value):
-        validate
+    def handle_convert(self, value_to_check):
+        value = self.validate_input_value(value_to_check)
         result = value * MILES_TO_KM
         self.root.ids.output_label.text = "{:.2f}".format(result)
 
     def handle_increment(self, value, increment):
+        value = self.validate_input_value(value)
         new_value = float(value) + increment
         self.root.ids.input_number.text = str(new_value)
 
