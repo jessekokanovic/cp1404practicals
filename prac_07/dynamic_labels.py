@@ -2,7 +2,6 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.label import Label
 
-
 class DynamicLabelsApp(App):
     """Dynamically create labels for names in a list"""
 
@@ -18,7 +17,7 @@ class DynamicLabelsApp(App):
 
     def create_labels(self):
         for name in self.names:
-            temp_label = Label(text=name)
+            temp_label = Label(id=name, text=name)
             self.root.ids.entries_box.add_widget(temp_label)
 
 
