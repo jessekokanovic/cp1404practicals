@@ -6,6 +6,7 @@ print(prius)
 prius.start_fare()
 prius.drive(100)
 print(prius)
+print(prius.get_fare())
 
 
 
