@@ -16,7 +16,7 @@ while menu_choice != "Q":
         chosen_taxi = int(input("Chosen taxi: "))
         print("Bill to date: ${:.2f}".format(total_bill))
         print(MENU)
-        menu_choice = input(">>>")
+        menu_choice = input(">>>").upper()
     else:
         distance_to_drive = int(input("Drive how far?"))
         taxis[chosen_taxi].start_fare()
@@ -26,7 +26,7 @@ while menu_choice != "Q":
         print("Your {} trip cost you ${}".format(taxis[chosen_taxi].name, fare))
         print("Bill to date: ${:.2f}".format(total_bill))
         print(MENU)
-        menu_choice = input(">>>")
+        menu_choice = input(">>>").upper()
 print("Total trip cost: ${}".format(total_bill))
 print("Taxis are now:")
 for taxi_number, taxi in enumerate(taxis):
