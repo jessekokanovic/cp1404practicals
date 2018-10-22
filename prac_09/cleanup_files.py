@@ -11,9 +11,9 @@ def main():
     print("Starting directory is: {}".format(os.getcwd()))
     os.chdir('Lyrics/Christmas')
     print("Files in {}:\n{}\n".format(os.getcwd(), os.listdir('.')))
-    print(get_fixed_filename("The firstNoel(remix).TXT"))
-    # for filename in os.listdir('.'):
-    #     print(get_fixed_filename(filename))
+    # print(get_fixed_filename("The firstNoel(remix).TXT"))
+    for filename in os.listdir('.'):
+        print(get_fixed_filename(filename))
 
 
 def get_fixed_filename(filename):
@@ -32,9 +32,11 @@ def get_fixed_filename(filename):
             new_name = new_name + "_" + current_letter
         elif current_letter.isspace():
             new_name = new_name + "_"
-            print(filename[index + 1].upper())
         else:
             new_name = new_name + current_letter
+    for i, current_letter in enumerate(new_name):
+        if current_letter == "_":
+            new_name = new_name[:i + 1] + new_name[i + 1:].capitalize()
     return new_name
 
 
