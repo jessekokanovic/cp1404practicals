@@ -8,6 +8,9 @@ SPECIAL_CHARACTERS = ['(']
 
 
 def main():
+    # Change to desired directory
+    os.chdir('Lyrics/Christmas')
+
     # Process all directories
     for directory_name, subdirectories, filenames in os.walk('.'):
         print("Directory:", directory_name)

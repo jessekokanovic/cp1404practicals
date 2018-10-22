@@ -4,7 +4,7 @@ import os
 
 # VERSION 1
 # Get to correct directory
-os.chdir('FilesToSort')
+os.chdir('FilesToSort_V1')
 
 # Find all the file extensions we need and store in a list
 extensions = []
