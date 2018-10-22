@@ -63,5 +63,6 @@ def demo_walk():
             new_name = get_fixed_filename(current_file)
             os.rename(current_file, new_name)
 
+
 #main()
 demo_walk()
