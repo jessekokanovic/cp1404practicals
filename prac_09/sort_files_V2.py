@@ -31,12 +31,12 @@ for category in category_to_extension:
     except FileExistsError:
         pass
 
-# # Move files to correct directory
-# for filename in os.listdir('.'):
-#     if os.path.isdir(filename):
-#         continue
-#     else:
-#         for extension in extensions:
-#             if filename.endswith(extension):
-#                 shutil.move(filename, extension)
-#
+# Move files to correct directory
+for filename in os.listdir('.'):
+    if os.path.isdir(filename):
+        continue
+    else:
+        for category in category_to_extension:
+            for extension in category_to_extension[category]:
+                if filename.endswith(extension):
+                    shutil.move(filename, category)
